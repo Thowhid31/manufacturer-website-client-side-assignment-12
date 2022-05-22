@@ -11,12 +11,12 @@ const Product = ({ product}) => {
     }
 
     return (
-        <div class="card lg:max-w-lg bg-black shadow-xl">
-            <figure class="px-10 pt-10">
+        <div className="card lg:max-w-lg bg-black shadow-xl">
+            <figure className="px-10 pt-10">
                 <img className='rounded' src={image} alt='' />
             </figure>
-            <div class="card-body items-center">
-                <h2 class="card-title text-2xl font-bold">{name}</h2>
+            <div className="card-body items-center">
+                <h2 className="card-title text-2xl font-bold">{name}</h2>
                 <p className='text-justify'>{description}</p>
                 <div className='text-center'>
                     <div>
@@ -32,8 +32,8 @@ const Product = ({ product}) => {
                 </div>
                 
             </div>
-            <div class="card-actions">
-                    <button onClick={()=>purchaseBtnHandler(_id)} class="btn btn-primary w-full uppercase">Book Now</button>
+            <div className="card-actions">
+                    <button onClick={()=>purchaseBtnHandler(_id)} className="btn btn-primary w-full uppercase">Book Now</button>
                 </div>
         </div>
     );
