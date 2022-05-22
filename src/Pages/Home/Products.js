@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
+
 import Product from './Product';
 
 const Products = () => {
-
-
-
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
@@ -27,7 +25,7 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
-        </div>
+            </div>
     );
 };
 

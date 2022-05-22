@@ -5,6 +5,7 @@ import Contact from './Components/Contact';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import Portfolio from './Components/Portfolio';
+import PurchasePage from './Components/PurchasePage';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
+        <Route path='/purchase/:productId' element={<PurchasePage></PurchasePage>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
       </Navbar>

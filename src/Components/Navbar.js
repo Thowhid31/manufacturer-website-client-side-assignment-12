@@ -3,14 +3,13 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ children }) => {
     const [dark, setDark] = useState(false);
-    console.log(dark);
     return (
         <div class="drawer drawer-end" data-theme={dark ? "dark" : "light"}>
             <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content flex flex-col">
 
                 <div class="w-full navbar bg-base-300 px-20">
-                    <div class="flex-1 px-2 mx-2">Computer Center</div>
+                    <div class="flex-1 px-2 mx-2">Computer Mechanism</div>
                     <div class="flex-none lg:hidden">
 
                         <label for="my-drawer-3" class="btn btn-square btn-ghost">

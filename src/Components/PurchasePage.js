@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const PurchasePage = () => {
+    const {productId} = useParams();
+    const [product, setProduct] = useState({})
+
+    useEffect(()=>{      
+            fetch(`products.json/purchase/${productId}`)
+            .then(res=> res.json())
+            .then(data => setProduct(data))
+
+    },[product, productId])
+
     return (
         <div>
-            <h1>Your Purchase Information</h1>
+            <h1>Your Purchase Information: {product.name}</h1>
+            <h2>Description: {product.description}</h2>
         </div>
     );
 };
