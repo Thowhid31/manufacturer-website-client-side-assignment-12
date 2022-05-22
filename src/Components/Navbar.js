@@ -10,7 +10,7 @@ const Navbar = ({ children }) => {
             <div class="drawer-content flex flex-col">
 
                 <div class="w-full navbar bg-base-300 px-20">
-                    <div class="flex-1 px-2 mx-2">Assignment 12</div>
+                    <div class="flex-1 px-2 mx-2">Computer Center</div>
                     <div class="flex-none lg:hidden">
 
                         <label for="my-drawer-3" class="btn btn-square btn-ghost">
@@ -22,6 +22,7 @@ const Navbar = ({ children }) => {
                         <ul class="menu menu-horizontal gap-x-3">
 
                             <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
+                            <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
                             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
                             <li><NavLink to='/contact' className='rounded-lg'>Contact</NavLink></li>
                             <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
@@ -41,6 +42,7 @@ const Navbar = ({ children }) => {
                 <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
 
                     <li><NavLink to='/' className='rounded-lg my-1'>Home</NavLink></li>
+                    <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
                     <li><NavLink to='/about' className='rounded-lg my-1'>About</NavLink></li>
                     <li><NavLink to='/contact' className='rounded-lg my-1'>Contact</NavLink></li>
                     <li><NavLink to='/login' className='rounded-lg my-1'>Login</NavLink></li>

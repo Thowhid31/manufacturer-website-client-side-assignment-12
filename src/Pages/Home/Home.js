@@ -1,9 +1,16 @@
 import React from 'react';
+import Banner from './Banner';
+import Footer from './Footer';
+import Products from './Products';
+import Reviews from './Reviews';
 
 const Home = () => {
     return (
         <div>
-            <h1 className='font-bold text-red-600'>Home</h1>
+            <Banner></Banner>
+            <Products></Products>
+            <Reviews></Reviews>
+            <Footer></Footer>
         </div>
     );
 };
