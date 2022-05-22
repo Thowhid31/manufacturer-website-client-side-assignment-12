@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "name": "Keys",
         "image": "https://i.ibb.co/42BcR09/key-720x410.jpg",
         "price": 30,
@@ -9,7 +8,6 @@
         "description": "With a computer keyboard, a key is one of the keyboard's buttons. Letters, numbers, functions, and symbols are all represented on keys. For example, the picture shows the Windows key, a keyboard key found on most keyboards today."
     },
     {
-        "id": 2,
         "name": "Cooler",
         "image": "https://i.ibb.co/T0sDJ8X/cooler-720x410.png",
         "price": 400,
@@ -18,7 +16,6 @@
         "description": "Laptop cooling pads have fans in them which help flow cool air keeping your laptop cool all time. It also helps raise your laptop. The laptop cooler will help cool the laptop from the bottom, reducing the temperature of the components."
     },
     {
-        "id": 3,
         "name": "Mouse",
         "image": "https://i.ibb.co/CMLNs42/mouse-720x410.jpg",
         "price": 150,
@@ -27,7 +24,6 @@
         "description": "The mouse is a small, movable device that lets you control a range of things on a computer. Most types of mouse have two buttons, and some will have a wheel in between the buttons. Most types of mouse connect to the computer with a cable, and use the computer's power to work."
     },
     {
-        "id": 4,
         "name": "Chips",
         "image": "https://i.ibb.co/8Nc7h6N/chips-720x410.jpg",
         "price": 700,
@@ -36,7 +32,6 @@
         "description": "Chips enable applications such as virtual reality and on-device artificial intelligence (AI) as well as gains in data transfer such as 5G connectivity, and they're also behind algorithms such as those used in deep learning. All this computing produces a lot of data."
     },
     {
-        "id": 5,
         "name": "Motherboard",
         "image": "https://i.ibb.co/9WzTdHG/motherboard-720x410.jpg",
         "price": 505,
@@ -45,7 +40,6 @@
         "description": "The official motherboard definition is that it's the main printed circuit board within a computer, which means it's the primary piece of circuitry that all of the other pieces plug into to create a cohesive whole."
     },
     {
-        "id": 6,
         "name": "Cover",
         "image": "https://i.ibb.co/6DTYJMq/laptop-cover-720x410.jpg",
         "price": 300,

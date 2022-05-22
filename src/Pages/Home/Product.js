@@ -7,7 +7,7 @@ const Product = ({ product}) => {
 
     const navigate = useNavigate();
     const purchaseBtnHandler = id => {
-        navigate (`/purchase/${id}`)
+        navigate (`/product/${id}`)
     }
 
     return (
@@ -34,9 +34,6 @@ const Product = ({ product}) => {
             </div>
             <div class="card-actions">
                     <button onClick={()=>purchaseBtnHandler(_id)} class="btn btn-primary w-full uppercase">Book Now</button>
-
-
-                    {/* <Link to='/purchase' onClick={()=>setPurchase(purchase)} class="btn btn-primary uppercase">Book Now</Link> */}
                 </div>
         </div>
     );

@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 const PurchasePage = () => {
     const {productId} = useParams();
     const [product, setProduct] = useState({})
+    
 
     useEffect(()=>{      
-            fetch(`products.json/purchase/${productId}`)
+            fetch(`http://localhost:5000/product/${productId}`)
             .then(res=> res.json())
             .then(data => setProduct(data))
 
