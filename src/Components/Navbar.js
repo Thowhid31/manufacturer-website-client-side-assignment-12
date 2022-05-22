@@ -45,6 +45,7 @@ const Navbar = ({ children }) => {
                     <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
                     <li><NavLink to='/about' className='rounded-lg my-1'>About</NavLink></li>
                     <li><NavLink to='/contact' className='rounded-lg my-1'>Contact</NavLink></li>
+                    <li><NavLink to='/portfolio' className='rounded-lg my-1'>Portfolio</NavLink></li>
                     <li><NavLink to='/login' className='rounded-lg my-1'>Login</NavLink></li>
                     <label class="swap swap-rotate">
                         <input type="checkbox" onClick={() => setDark(!dark)} />

@@ -12,7 +12,7 @@ const Banner = () => {
                 <img src={ccBanner} className='flex-1 shrink-0' alt="img-alt" />
                 <div className='px-12 flex-1'>
                     <p className='text-green-500'>WELCOME TO</p>
-                    <h1 class="text-5xl font-bold">Computer Center</h1>
+                    <h1 class="text-5xl font-bold">Computer Mechanism</h1>
                     <p class="py-6">This is the best address to earn your best computer parts product to resolves your valuable laptop's problems.</p>
                     <button class="btn btn-primary uppercase bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0">Get Started</button>
                 </div>
