@@ -33,7 +33,10 @@ const Navbar = ({ children }) => {
                             <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
                             <li><NavLink to='/product' className='rounded-lg'>Parts</NavLink></li>
                             <li><NavLink to='/business-summary' className='rounded-lg'>Business Summary</NavLink></li>
-                            <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
+                            {user ? <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li> : ''}
+                            <li><NavLink to='/portfolio' className='rounded-lg'>My Portfolio</NavLink></li>
+                            <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
+
                             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
                             <li><NavLink to='/contact' className='rounded-lg'>Contact</NavLink></li>
                             <li>{user ? <p className='bg-secondary rounded font-bold text-black'>{user.displayName}</p> : ""}</li>

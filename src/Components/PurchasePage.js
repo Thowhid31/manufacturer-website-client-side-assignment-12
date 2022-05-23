@@ -22,7 +22,7 @@ const PurchasePage = () => {
             background: `url(${purchaseBG})`,
             backgroundSize: 'cover'
         }}>
-            <h1 className='text-center text-2xl mt-5 font-bold mb-12 mt-11 uppercase'>Your Purchase Information: {product.name}</h1>
+            <h1 className='text-center text-2xl font-bold mb-12 mt-11 uppercase'>Your Purchase Information: {product.name}</h1>
 
             <div className=' flex justify-center'>
                 <div className="card w-96 glass">
@@ -65,7 +65,8 @@ const PurchasePage = () => {
 
                     
                     <div class="card-actions justify-end mt-8">
-                        <button class="btn btn-primary uppercase">Confirm Purchase</button>
+                        <button disabled={product.quantity === 0}
+                        class="btn btn-primary uppercase">Confirm Purchase</button>
                     </div>
                 </div>
             </div>

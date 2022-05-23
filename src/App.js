@@ -1,7 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './Components/About';
+import Blog from './Components/Blog';
 import Contact from './Components/Contact';
+import ErrorPage from './Components/ErrorPage';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import Portfolio from './Components/Portfolio';
@@ -28,6 +30,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/product/:productId' element={
           <RequireAuth>
             <PurchasePage></PurchasePage>
@@ -35,6 +38,7 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
       </Routes>
       </Navbar>
     </div>
