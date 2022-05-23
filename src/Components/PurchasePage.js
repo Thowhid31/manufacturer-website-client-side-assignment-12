@@ -9,13 +9,13 @@ const PurchasePage = () => {
     const [product, setProduct] = useState({});
     const [user] = useAuthState(auth);
 
-
     useEffect(() => {
         fetch(`http://localhost:5000/product/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
 
     }, [product, productId])
+
 
     return (
         <div className='px-12' style={{
@@ -40,13 +40,8 @@ const PurchasePage = () => {
                             <div>
                                 <p className='font-bold'> Price: {product.price} <small className="badge badge-xs">per piece</small></p>
                             </div>
-
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
             <div className='flex justify-center'>
@@ -54,20 +49,22 @@ const PurchasePage = () => {
                     <h1 className='text-2xl font-bold uppercase text-secondary mb-2'>Your details Info to purchase</h1>
                     <p className='text-2xl uppercase'>Name: {user?.displayName}</p>
                     <p className='text-2xl uppercase'>Email: {user?.email}</p>
+
+              
+                        <h1 className='text-xl mb-3 mt-2'>Quantity: </h1><input type="number" placeholder="Enter Your Quantity" class="input input-bordered input-secondary text-black w-full max-w-xs" max={product.quantity} min={product.minimum} />
+
+                        <h1 className='text-xl mb-3 mt-2'>Address: </h1><input type="text" placeholder="Type here" class="input input-bordered input-secondary text-black w-full max-w-xs" />
+
+
+                        <h1 className='text-xl mb-3 mt-2'>Phone: </h1><input type="number" placeholder="Type here" class="input input-bordered input-secondary text-black w-full max-w-xs" />
+
+
+
+                        <div class="card-actions justify-end mt-8">
+                            {/* <button class="btn btn-primary uppercase" type="submit" value='submit'>Confirm Purchase</button> */}
+                            <input type="submit" value='Purchase Now' placeholder="Type here" className="btn btn-primary max-w-xs" />
+                        </div>
                     
-                    <h1 className='text-xl mb-3 mt-2'>Quantity: </h1><input type="number" placeholder="Enter Your Quantity" class="input input-bordered input-secondary text-black w-full max-w-xs" max={product.quantity} min={product.minimum} />
-
-                    <h1 className='text-xl mb-3 mt-2'>Address: </h1><input type="text" placeholder="Type here" class="input input-bordered input-secondary text-black w-full max-w-xs" />
-
-
-                    <h1 className='text-xl mb-3 mt-2'>Phone: </h1><input type="number" placeholder="Type here" class="input input-bordered input-secondary text-black w-full max-w-xs"/>
-
-
-                    
-                    <div class="card-actions justify-end mt-8">
-                        <button disabled={product.quantity === 0}
-                        class="btn btn-primary uppercase">Confirm Purchase</button>
-                    </div>
                 </div>
             </div>
         </div>

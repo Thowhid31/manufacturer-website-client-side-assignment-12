@@ -14,34 +14,47 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import AllProducts from './Pages/Home/AllProducts';
 import BusinessSummary from './Pages/Home/BusinessSummary';
 import Home from './Pages/Home/Home';
+import { ToastContainer } from 'react-toastify';
+import MyOrder from './Pages/Dashboard/MyOrder';
+import MyReview from './Pages/Dashboard/MyReview';
+import MyProfile from './Pages/Dashboard/MyProfile';
 
 
 function App() {
   return (
     <div>
       <Navbar>
-      <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        <Routes>
+          <Route path='/' element={<Home></Home>}></Route>
 
-        <Route path='/product' element={<AllProducts></AllProducts>}></Route>
-        <Route path='/business-summary' element={<BusinessSummary></BusinessSummary>}></Route>
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
-        
-        <Route path='/about' element={<About></About>}></Route>
-        <Route path='/contact' element={<Contact></Contact>}></Route>
-        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
-        <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/product/:productId' element={
+          <Route path='/product' element={<AllProducts></AllProducts>}></Route>
+          <Route path='/business-summary' element={<BusinessSummary></BusinessSummary>}></Route>
+          <Route path='/dashboard' element={
           <RequireAuth>
-            <PurchasePage></PurchasePage>
-          </RequireAuth>
-        }></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/signup' element={<SignUp></SignUp>}></Route>
-        <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
-      </Routes>
+            <Dashboard></Dashboard>
+          </RequireAuth>}>
+          <Route index element={<MyOrder></MyOrder>}></Route>
+            <Route path='review' element={<MyReview></MyReview>}></Route>
+            <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+          </Route>
+
+          <Route path='/about' element={<About></About>}></Route>
+          <Route path='/contact' element={<Contact></Contact>}></Route>
+          <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
+          <Route path='/blog' element={<Blog></Blog>}></Route>
+          <Route path='/product/:productId' element={
+            <RequireAuth>
+              <PurchasePage></PurchasePage>
+            </RequireAuth>
+          }></Route>
+          <Route path='/login' element={<Login></Login>}></Route>
+          <Route path='/signup' element={<SignUp></SignUp>}></Route>
+          <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
+        </Routes>
       </Navbar>
+      <ToastContainer />
     </div>
+
   );
 }
 
