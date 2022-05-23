@@ -6,6 +6,7 @@ import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import Portfolio from './Components/Portfolio';
 import PurchasePage from './Components/PurchasePage';
+import SignUp from './Components/SignUp';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Home from './Pages/Home/Home';
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/product/:productId' element={<PurchasePage></PurchasePage>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/signup' element={<SignUp></SignUp>}></Route>
       </Routes>
       </Navbar>
     </div>
