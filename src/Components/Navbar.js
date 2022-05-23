@@ -14,7 +14,7 @@ const Navbar = ({ children }) => {
         signOut(auth)
     };
     return (
-        <div className="drawer drawer-end " data-theme={dark ? "dark" : "light"}>
+        <div className="drawer drawer-end" data-theme={dark ? "dark" : "light"}>
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
 
@@ -31,6 +31,8 @@ const Navbar = ({ children }) => {
                         <ul className="menu menu-horizontal gap-x-3">
 
                             <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
+                            <li><NavLink to='/product' className='rounded-lg'>Parts</NavLink></li>
+                            <li><NavLink to='/business-summary' className='rounded-lg'>Business Summary</NavLink></li>
                             <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
                             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
                             <li><NavLink to='/contact' className='rounded-lg'>Contact</NavLink></li>
@@ -52,6 +54,8 @@ const Navbar = ({ children }) => {
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
 
                     <li><NavLink to='/' className='rounded-lg my-1'>Home</NavLink></li>
+                    <li><NavLink to='/product' className='rounded-lg'>Parts</NavLink></li>
+                    <li><NavLink to='/business-summary' className='rounded-lg'>Business Summary</NavLink></li>
                     <li><NavLink to='/dashboard' className='rounded-lg'>Dashboard</NavLink></li>
                     <li><NavLink to='/about' className='rounded-lg my-1'>About</NavLink></li>
                     <li><NavLink to='/contact' className='rounded-lg my-1'>Contact</NavLink></li>
