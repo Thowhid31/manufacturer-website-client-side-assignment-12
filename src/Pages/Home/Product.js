@@ -26,7 +26,7 @@ const Product = ({ product}) => {
                         <p className='font-bold text-red-600'> Min. Order: {minimum}</p>
                     </div>
                     <div>
-                        <p className='font-bold'> Price: {price} <small>(per piece)</small></p> 
+                        <p className='font-bold'> Price: {price} <small className="badge badge-xs">per piece</small></p> 
                     </div>
 
                 </div>
