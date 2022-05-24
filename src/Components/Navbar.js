@@ -12,6 +12,7 @@ const Navbar = ({ children }) => {
 
     const logout = () => {
         signOut(auth)
+        localStorage.removeItem('accessToken')
     };
     return (
         <div className="drawer drawer-end" data-theme={dark ? "dark" : "light"}>
@@ -46,7 +47,7 @@ const Navbar = ({ children }) => {
 
                             <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
                             <li><NavLink to='/contact' className='rounded-lg'>Contact</NavLink></li>
-                            <li>{user ? <p className='bg-secondary rounded font-bold text-black'>{user.displayName}</p> : ""}</li>
+                            <li>{user ? <p className='bg-secondary rounded font-bold text-black'>{user?.displayName}</p> : ""}</li>
                             <li>{user ? <button onClick={logout} className='btn btn-ghost'> Sign Out</button> : <NavLink to='/login' className='rounded-lg'>Login</NavLink>}</li>
                             <label className="swap swap-rotate">
                                 <input type="checkbox" onClick={() => setDark(!dark)} />

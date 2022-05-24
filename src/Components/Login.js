@@ -54,8 +54,6 @@ const Login = () => {
                     <h2 className="text-center text-3xl font-bold">Login</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
-
-
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>

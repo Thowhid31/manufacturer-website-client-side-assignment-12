@@ -18,6 +18,7 @@ const Dashboard = () => {
             <li><NavLink className='mt-2 font-black' to="/dashboard">My Orders</NavLink></li>
             <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/review">My Reviews</NavLink></li>
             <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/profile">My Profile</NavLink></li>
+            <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/users">All Users</NavLink></li>
           </ul>
         
         </div>
