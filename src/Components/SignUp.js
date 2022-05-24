@@ -19,7 +19,7 @@ const SignUp = () => {
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
 
-      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+      const [updateProfile, updateError] = useUpdateProfile(auth);
 
       const navigate = useNavigate()
 

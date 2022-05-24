@@ -15,6 +15,7 @@ import AllProducts from './Pages/Home/AllProducts';
 import BusinessSummary from './Pages/Home/BusinessSummary';
 import Home from './Pages/Home/Home';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MyOrder from './Pages/Dashboard/MyOrder';
 import MyReview from './Pages/Dashboard/MyReview';
 import MyProfile from './Pages/Dashboard/MyProfile';
@@ -53,8 +54,9 @@ function App() {
           <Route path='/signup' element={<SignUp></SignUp>}></Route>
           <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
         </Routes>
+        <ToastContainer />
       </Navbar>
-      <ToastContainer />
+      
     </div>
 
   );
