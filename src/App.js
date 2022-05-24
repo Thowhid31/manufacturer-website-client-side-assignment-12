@@ -23,6 +23,7 @@ import Users from './Pages/Dashboard/Users';
 import ManageOrder from './Pages/Dashboard/ManageOrder';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import AddProduct from './Pages/Dashboard/AddProduct';
+import RequireAdmin from './Components/RequireAdmin';
 
 
 function App() {
@@ -35,13 +36,17 @@ function App() {
           <Route path='/product' element={<AllProducts></AllProducts>}></Route>
           <Route path='/business-summary' element={<BusinessSummary></BusinessSummary>}></Route>
           <Route path='/dashboard' element={
-          <RequireAuth>
-            <Dashboard></Dashboard>
-          </RequireAuth>}>
-          <Route index element={<MyOrder></MyOrder>}></Route>
+            <RequireAuth>
+              <Dashboard></Dashboard>
+            </RequireAuth>}>
+            <Route index element={<MyOrder></MyOrder>}></Route>
             <Route path='review' element={<MyReview></MyReview>}></Route>
             <Route path='profile' element={<MyProfile></MyProfile>}></Route>
-            <Route path='users' element={<Users></Users>}></Route>
+            <Route path='users' element={
+              <RequireAdmin>
+                <Users></Users>
+              </RequireAdmin>
+            }></Route>
             <Route path='manage-orders' element={<ManageOrder></ManageOrder>}></Route>
             <Route path='manage-products' element={<ManageProducts></ManageProducts>}></Route>
             <Route path='add-product' element={<AddProduct></AddProduct>}></Route>
@@ -62,7 +67,7 @@ function App() {
         </Routes>
         <ToastContainer />
       </Navbar>
-      
+
     </div>
 
   );
