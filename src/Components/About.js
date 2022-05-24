@@ -11,7 +11,7 @@ const About = () => {
                 <div className='px-12 lg:px-28 text-justify mb-6'>
 
                     <h2 className='text-center text-2xl mt-5 p-6 pb-6 text-purple-400'><b>TERMS AND CONDITIONS</b></h2>
-                    <marquee>Last updated: 2022-05-24</marquee>
+                    <p className='text-center'>Last updated: 2022-05-24</p>
                     <p className='mt-3'>1. <b>Introduction</b></p>
                     <p>Welcome to <b>Computer Mechanism</b> (“Company”, “we”, “our”, “us”)!</p>
                     <p>These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website located at <b>ph-final-assignment-12.web.app</b> (together or individually “Service”) operated by <b>Computer Mechanism</b>.</p>
@@ -69,7 +69,6 @@ const About = () => {
                     <p>18. <b>Links To Other Web Sites</b></p>
                     <p>Our Service may contain links to third party web sites or services that are not owned or controlled by Computer Mechanism.</p>
                     <p>Computer Mechanism has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.</p>
-                    <p>For example, the outlined <a href="https://policymaker.io/terms-and-conditions/">Terms of Use</a> have been created using <a href="https://policymaker.io/">PolicyMaker.io</a>, a free web application for generating high-quality legal documents. PolicyMaker’s <a href="https://policymaker.io/terms-and-conditions/">Terms and Conditions generator</a> is an easy-to-use free tool for creating an excellent standard Terms of Service template for a website, blog, e-commerce store or app.</p>
                     <p>YOU ACKNOWLEDGE AND AGREE THAT COMPANY SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.</p>
                     <p>WE STRONGLY ADVISE YOU TO READ THE TERMS OF SERVICE AND PRIVACY POLICIES OF ANY THIRD PARTY WEB SITES OR SERVICES THAT YOU VISIT.</p>
                     <p>19. <b>Disclaimer Of Warranty</b></p>
