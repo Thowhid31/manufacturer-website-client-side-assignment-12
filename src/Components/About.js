@@ -8,7 +8,7 @@ const About = () => {
             backgroundSize: 'cover'
         }}>
             <div className='glass rounded'>
-                <div className='px-12 lg:px-28 text-justify mb-6'>
+                <div className='px-12 lg:px-72 text-justify mb-6'>
 
                     <h2 className='text-center text-2xl mt-5 p-6 pb-6 text-purple-400'><b>TERMS AND CONDITIONS</b></h2>
                     <p className='text-center'>Last updated: 2022-05-24</p>
