@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 import auth from '../firebase.init';
+import navImage from '../Assets/images/logo-assign-12.png'
 
 const Navbar = ({ children }) => {
 
@@ -27,7 +28,7 @@ const Navbar = ({ children }) => {
                
                 <label for="my-drawer-2"  class="badge badge-accent lg:hidden">•••</label>
                 
-                    <div className="flex-1 px-2 mx-2">Computer Mechanism</div>
+                    <div className="flex-1 px-2 mx-2"><img className='w-1/3 lg:w-1/2' src={navImage} alt="" /></div>
                     <div className="flex-none lg:hidden">
 
                         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
