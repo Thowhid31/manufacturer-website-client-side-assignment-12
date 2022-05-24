@@ -7,7 +7,7 @@ import purchaseBG from '../Assets/images/purchase-2.jpg'
 const PurchasePage = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
-    const [user] = useAuthState(auth);
+const [user] = useAuthState(auth);
 
     useEffect(() => {
         fetch(`http://localhost:5000/product/${productId}`)

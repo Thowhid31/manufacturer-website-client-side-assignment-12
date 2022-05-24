@@ -72,7 +72,7 @@ const Navbar = ({ children }) => {
                     <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
                     <li><NavLink to='/about' className='rounded-lg my-1'>About</NavLink></li>
                     <li><NavLink to='/contact' className='rounded-lg my-1'>Contact</NavLink></li>
-                    <li><NavLink to='/portfolio' className='rounded-lg my-1'>Portfolio</NavLink></li>
+                    {/* <li><NavLink to='/portfolio' className='rounded-lg my-1'>Portfolio</NavLink></li> */}
                     <li>{user ? <p className='bg-secondary rounded font-bold text-black'>{user.displayName}</p> : ""}</li>
                     <li>{user ? <button onClick={logout} className='btn btn-ghost'> Sign Out</button> : <NavLink to='/login' className='rounded-lg'>Login</NavLink>}</li>
                     <label className="swap swap-rotate">
