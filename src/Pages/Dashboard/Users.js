@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Components/Loading';
+import DeleteConfirmModal from './DeleteConfirmModal';
 import UserRow from './UserRow';
 
 const Users = () => {
+
+    const [deletingUser, setDeletingUser] = useState(null)
 
     const {data: users, isLoading, refetch} = useQuery('users', ()=> fetch('http://localhost:5000/user',{
         method: "GET",
@@ -37,11 +40,17 @@ const Users = () => {
             index={index}
             user={user}
             refetch={refetch}
+            setDeletingUser={setDeletingUser}
             ></UserRow>)
         }
     </tbody>
   </table>
 </div>
+{deletingUser && <DeleteConfirmModal
+deletingUser={deletingUser}
+refetch={refetch}
+setDeletingUser={setDeletingUser}
+></DeleteConfirmModal>}
         </div>
     );
 };
