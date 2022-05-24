@@ -25,7 +25,7 @@ const Navbar = ({ children }) => {
 
                 <div className="w-full navbar bg-base-300 px-20">
                
-                <label for="my-drawer-2"  class="badge badge-accent">•••</label>
+                <label for="my-drawer-2"  class="badge badge-accent lg:hidden">•••</label>
                 
                     <div className="flex-1 px-2 mx-2">Computer Mechanism</div>
                     <div className="flex-none lg:hidden">

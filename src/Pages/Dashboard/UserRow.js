@@ -24,12 +24,29 @@ const UserRow = ({ user, index, refetch }) => {
             })
     }
 
+    const handleDeleteUser = (email) => {
+        fetch(`http://localhost:5000/user/${email}`,{
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res=>res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount){
+                refetch();
+                toast.success('User is Deleted')
+            }
+        })
+    }
+
     return (
         <tr>
             <th>{index + 1}</th>
             <td className='text-black'>{email}</td>
-            <td>{role !== 'admin' && <button onClick={makeAdmin} className='btn btn-xs'>Make Admin</button>}</td>
-            <td><button className='btn btn-xs'>Delete User</button></td>
+            <td>{role !== 'admin' && <button onClick={makeAdmin} className='btn btn-xs btn-success'>Make Admin</button>}</td>
+            <td>{role !== 'admin' && <button onClick={()=>handleDeleteUser(email)} className='btn btn-xs btn-error'>Delete User</button>}</td>
 
         </tr>
     );

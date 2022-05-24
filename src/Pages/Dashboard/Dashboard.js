@@ -20,13 +20,13 @@ const Dashboard = () => {
           <label for="my-drawer-2" class="drawer-overlay "></label> 
           <ul class="menu p-4 overflow-y-auto w-80 text-base-content uppercase bg-black">
            
-            { !admin && <li><NavLink className='mt-2 font-black' to="/dashboard">My Orders</NavLink></li>}
-            {!admin && <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/review">My Reviews</NavLink></li>}
-            <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/profile">My Profile</NavLink></li>
-            {admin && <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/manage-orders">Manage Orders</NavLink></li>}
-            {admin && <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/users">All Users</NavLink></li>}
-            {admin && <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/manage-products">Manage Products</NavLink></li>}
-            {admin && <li><NavLink className='mt-2 font-black text-yellow-300' to="/dashboard/add-product">Add a Product</NavLink></li>}
+            { !admin && <li><NavLink className='mt-2 font-black glass' to="/dashboard">My Orders</NavLink></li>}
+            {!admin && <li><NavLink className='mt-2 font-black text-secondary' to="/dashboard/review">My Reviews</NavLink></li>}
+            <li><NavLink className='mt-2 font-black text-secondary' to="/dashboard/profile">My Profile</NavLink></li>
+            {admin && <li><NavLink className='mt-2 font-black text-secondary' to="/dashboard/manage-orders">Manage Orders</NavLink></li>}
+            {admin && <li><NavLink className='mt-2 font-black text-secondary' to="/dashboard/users">All Users</NavLink></li>}
+            {admin && <li><NavLink className='mt-2 font-black text-secondary' to="/dashboard/manage-products">Manage Products</NavLink></li>}
+            {admin && <li><NavLink className='mt-2 font-black text-secondary' to="/dashboard/add-product">Add a Product</NavLink></li>}
           </ul>
         
         </div>
