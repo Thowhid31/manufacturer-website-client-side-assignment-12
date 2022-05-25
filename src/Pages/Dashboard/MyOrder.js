@@ -15,7 +15,41 @@ const MyOrders = () => {
     }, [user])
     return (
         <div>
-            <h2 className='font-bold text-purple-500 my-5 text-2xl'>My Orders: <span className='text-red-600'>{orders.length}</span></h2>
+            <h2 className='font-bold text-black my-5 text-xl'>My Total Orders: <span className='text-red-600'>{orders.length}</span></h2>
+
+            <div>
+                <div class="overflow-x-auto ">
+                <table class="table w-full">
+
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Email</th>
+                            <th>Parts Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        {
+                            orders.map((order, index)=> <tr>
+                                <th className="bg-blue-200 text-black">{index + 1}</th>
+                                <td>{order.email}</td>
+                                <td className="bg-blue-200 text-black">{order.productName}</td>
+                                <td>{order.quantity}</td>
+                                <td className="bg-blue-200 text-black">{order.price}</td>
+                            </tr>)
+                        }
+
+                        
+
+
+                    </tbody>
+                </table>
+            </div>
+            </div>
         </div>
     );
 
