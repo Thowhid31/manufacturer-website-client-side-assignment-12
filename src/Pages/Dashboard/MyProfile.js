@@ -9,9 +9,12 @@ import auth from '../../firebase.init';
 
 
 const MyProfile = ({ refetch }) => {
+
+
+    
+
     const { email } = useParams();
     const [setUserUpdate] = useState({});
-
     const [user] = useAuthState(auth);
 
 
@@ -65,12 +68,6 @@ const MyProfile = ({ refetch }) => {
                                         </label>
                                         <input type="email" readOnly value={user.email} className="input input-bordered w-full input-sm max-w-xs" />
 
-
-
-
-
-
-
                                         <label className="label">
                                             <span className="label-text font-semibold text-lg">Education</span>
                                         </label>
@@ -85,6 +82,10 @@ const MyProfile = ({ refetch }) => {
                                             <span className="label-text font-semibold text-lg">Phone</span>
                                         </label>
                                         <input type="number" name='phone' className="input input-bordered w-full input-sm max-w-xs mb-4" required />
+                                        <label className="label">
+                                            <span className="label-text font-semibold text-lg">LinkedIn Link</span>
+                                        </label>
+                                        <input type="text" name='LinkedIn' className="input input-bordered w-full input-sm max-w-xs mb-4" required />
 
                                         <br />
 
@@ -94,6 +95,7 @@ const MyProfile = ({ refetch }) => {
 
 
                                     </form>
+                                    
                                 </div>
                             </div>
                             <div class="flex-1 text-center lg:text-left p-5">

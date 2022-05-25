@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import AllProducts from './AllProducts';
 
-
-import Product from './Product';
-
-const Products = () => {
+const ForAllProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
@@ -20,10 +18,10 @@ const Products = () => {
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 px-12'>
                 {
-                    products?.slice(-6).map(product => <Product
+                    products.map(product => <AllProducts
                     key={product._id}
                     product={product}
-                    ></Product>)
+                    ></AllProducts>)
                 }
             </div>
 
@@ -31,4 +29,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default ForAllProducts;
