@@ -6,7 +6,7 @@ const DeleteConfirmModal = ({ deletingUser, refetch, setDeletingUser }) => {
 
 
     const handleDeleteUser = (email) => {
-        fetch(`http://localhost:5000/user/${email}`,{
+        fetch(`https://morning-sea-61188.herokuapp.com/user/${email}`,{
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

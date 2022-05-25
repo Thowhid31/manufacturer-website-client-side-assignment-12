@@ -8,11 +8,11 @@ import { toast } from 'react-toastify';
 const PurchasePage = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
-    const [number, setNumber] = useState(10)
+    const [number, setNumber] = useState(0)
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${productId}`)
+        fetch(`https://morning-sea-61188.herokuapp.com/product/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
 
@@ -22,11 +22,21 @@ const PurchasePage = () => {
     const incNum = () => {
         if (number < product.quantity) {
             setNumber(Number(number) + 1);
+           
+        }
+        if(number > product.quantity){
+            toast.error('You cross our limit');
+            
         }
     };
     const decNum = () => {
-        if (number > 10) {
+        if (number > product.minimum) {
             setNumber(number - 1);
+            
+        }
+        if(number < product.minimum){
+            toast.error("Please Input Minimum value!");
+            
         }
     }
 
@@ -49,7 +59,7 @@ const PurchasePage = () => {
             address: event.target.address.value
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://morning-sea-61188.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -80,7 +90,7 @@ const PurchasePage = () => {
             <div className=' lg:flex flex-row'>
                 <div className='lg:flex-1 items-center'>
                     <div className="card glass m-10 p-10">
-                        <figure><img src={product.image} alt="car!" /></figure>
+                        <figure><img className='rounded' src={product.image} alt="car!" /></figure>
                         <div class="card-body ">
                             <h2 class="text-2xl uppercase font-bold">{product.name}</h2>
                             <p className='text-justify'>{product.description}</p>
@@ -107,7 +117,7 @@ const PurchasePage = () => {
 
                         
 
-                        <form onSubmit={handleOrder} className='w-full text-xl text-black'>
+                        <form onSubmit={handleOrder} className='w-full text-xl text-black form-control'>
                             <label className="label">
                                 <span className="label-text font-semibold text-lg">Name</span>
                             </label>
@@ -130,7 +140,7 @@ const PurchasePage = () => {
                                 <div className="input-group-prepend">
                                     <button className="btn btn-error rounded-full" type="button" onClick={decNum}>—</button>
                                 </div>
-                                <input type="number" className="form-control w-12 text-center" value={number} onChange={handleChange} />
+                                <input type="number" className="form-control w-24 text-center" min={product.minimum} value={number} onChange={handleChange} />
                                 <div className="input-group-prepend">
                                     <button className="btn btn-success" type="button" onClick={incNum}>+</button>
                                 </div>
@@ -156,7 +166,9 @@ const PurchasePage = () => {
 
                             <br/>
 
-                            <input type="submit" value="Purchase Now" className="btn btn-accent uppercase" />
+                            <div>
+                                <input disabled={number < product.minimum || number > product.quantity} type="submit" value="Purchase Now" className="btn btn-accent uppercase w-48" />
+                            </div>
 
 
                         </form>

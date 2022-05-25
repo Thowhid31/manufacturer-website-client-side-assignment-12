@@ -1,46 +1,104 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 // import purchaseBG from '../../Assets/images/purchase-2.jpg'
 
-const MyProfile = () => {
 
-    const [user] = useAuthState(auth)
+
+
+const MyProfile = ({ refetch }) => {
+    const { email } = useParams();
+    const [setUserUpdate] = useState({});
+
+    const [user] = useAuthState(auth);
+
+
+
+    const handleProfile = event => {
+        event.preventDefault()
+        const profile = {
+            email: user.email,
+            education: event.target.education.value,
+            phone: event.target.phone.value,
+            address: event.target.address.value
+        }
+
+        fetch(`https://morning-sea-61188.herokuapp.com/user/update/${email}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(profile)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch()
+                    setUserUpdate(null)
+                    toast.success('Your Info Updated')
+                }
+            })
+    }
 
     return (
-        <div className='px-12 h-screen rounded-xl' style={{
-            backgroundColor: '#B8F1B0'
-        }}>
+        <div className='rounded h-full'>
             <div>
                 <div className='text-black text-center m-5'>
                     <h1 className='p-5 text-3xl font-bold uppercase'>My Profile</h1>
                 </div>
                 <div>
-                    <div class="hero min-h-screen bg-base-200 flex justify-center items-center">
-                        <div class="hero-content flex-col lg:flex-row-reverse">
-                            <div class="flex-1 text-center lg:text-left">
-                                <h1 class="text-5xl font-bold">Update Your Profile Info</h1>
-                                <p class="py-6">If you want you can Edit your Info like, address, educational qualification and phone number also.</p>
-                            </div>
+                    <div class="hero bg-base-200 flex justify-center items-center">
+                        <div class="hero-content flex-col lg:flex-row">
+
                             <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                                 <div class="card-body flex-1">
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Name</span>
+                                    <form onSubmit={handleProfile} className='w-full text-xl text-black form-control'>
+                                        <label className="label">
+                                            <span className="label-text font-semibold text-lg">Name</span>
                                         </label>
-                                        <input value={user?.displayName} class="input input-bordered" />
-                                    </div>
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Email</span>
+                                        <input type="text" readOnly value={user.displayName} className="input input-bordered w-full input-sm max-w-xs" />
+
+                                        <label className="label">
+                                            <span className="label-text font-semibold text-lg">Email</span>
                                         </label>
-                                        <input value={user?.email} placeholder="password" class="input input-bordered" />
-                                    
-                                    </div>
-                                    <div class="form-control mt-6">
-                                        <button class="btn btn-primary">Login</button>
-                                    </div>
+                                        <input type="email" readOnly value={user.email} className="input input-bordered w-full input-sm max-w-xs" />
+
+
+
+
+
+
+
+                                        <label className="label">
+                                            <span className="label-text font-semibold text-lg">Education</span>
+                                        </label>
+                                        <input type="text" name='education' className="input input-bordered w-full input-sm max-w-xs" required />
+
+                                        <label className="label">
+                                            <span className="label-text font-semibold text-lg">Address</span>
+                                        </label>
+                                        <input type="text" name='address' className="input input-bordered w-full input-sm max-w-xs" required />
+
+                                        <label className="label">
+                                            <span className="label-text font-semibold text-lg">Phone</span>
+                                        </label>
+                                        <input type="number" name='phone' className="input input-bordered w-full input-sm max-w-xs mb-4" required />
+
+                                        <br />
+
+                                        <div>
+                                            <input type="submit" value="Update Profile" className="btn btn-accent uppercase w-48" />
+                                        </div>
+
+
+                                    </form>
                                 </div>
+                            </div>
+                            <div class="flex-1 text-center lg:text-left p-5">
+                                <h1 class="text-5xl font-bold">Update Your Profile Info</h1>
+                                <p class="py-6">If you want you can Edit your Info like, address, educational qualification and phone number also.</p>
                             </div>
                         </div>
                     </div>
