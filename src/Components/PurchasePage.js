@@ -59,7 +59,7 @@ const PurchasePage = () => {
             address: event.target.address.value
         }
 
-        fetch('https://morning-sea-61188.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -69,9 +69,12 @@ const PurchasePage = () => {
 
         .then(res => res.json())
         .then(data => {
-            if(data.insertedId){
+            console.log(data);
+            if(data.insertedId){ 
+                
                 toast.success('Purchase Succeed, Check My Orders to Pay')
                 event.target.reset();
+               
             }
         })
     
@@ -84,8 +87,7 @@ const PurchasePage = () => {
         <div className='px-12' style={{
             background: `url(${purchaseBG})`,
             backgroundSize: 'cover'
-        }}>
-            
+        }}>    
                 <h1 className='text-center text-2xl font-bold mb-12 mt-11 uppercase'>Your Purchase Information: {product.name}</h1>
             <div className=' lg:flex flex-row'>
                 <div className='lg:flex-1 items-center'>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import AllProducts from './AllProducts';
+
+import Product from './Product';
 
 const ForAllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -18,10 +19,10 @@ const ForAllProducts = () => {
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 px-12'>
                 {
-                    products.map(product => <AllProducts
+                    products?.map(product => <Product
                     key={product._id}
                     product={product}
-                    ></AllProducts>)
+                    ></Product>)
                 }
             </div>
 

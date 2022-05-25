@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const MyOrder = () => {
+
+
+    const [orders, setOrders] = useState([])
+
+    // useEffect(()=>{
+
+    // },[])
+
     return (
         <div>
             <h1>My Orders</h1>

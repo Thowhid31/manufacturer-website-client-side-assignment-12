@@ -1,7 +1,7 @@
 import React from 'react';
-import Products from './Products';
 import purchaseBG from '../../Assets/images/purchase-2.jpg'
 import Footer from './Footer';
+import ForAllProducts from './ForAllProducts';
 
 
 const AllProducts = () => {
@@ -12,7 +12,8 @@ const AllProducts = () => {
                     background: `url(${purchaseBG})`,
                     backgroundSize: 'cover'
                 }}>
-                    <Products></Products>
+                   
+                    <ForAllProducts></ForAllProducts>
 
                 </div>
                 <Footer></Footer>

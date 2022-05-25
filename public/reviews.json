@@ -1,18 +1,21 @@
 [
     {
         "name":"Antor",
+        "ratings": 4,
         "location" : "Dhaka, Bangladesh",
         "image" : "https://i.ibb.co/LkMBzy2/IMG-20190330-130447.jpg",
         "review":"This site is the best to mine. Because it they maintain all goods. And Quality no compromised!"
     },
     {
         "name":"Thowhid",
+        "ratings": 5,
         "location" : "Mymensingh, Bangladesh",
         "image" : "https://i.ibb.co/1RJkzkW/IMG-20190515-215211.jpg",
         "review":"You all guys are awesome, with awesome tech."
     },
     {
         "name":"Antor",
+        "ratings": 3,
         "location" : "Dhaka, Bangladesh",
         "image" : "https://i.ibb.co/BVwDGp8/IMG-20190607-174635-2.jpg",
         "review":"I Just thanked them from my side."

@@ -1,32 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import quote from '../../Assets/icons/My project (1).png';
 import Review from './Review';
 
 const Reviews = () => {
 
-    const review = [
-        {
-            _id: 1,
-            name: 'Bangla',
-            description: 'hello, this is the best',
-            location: 'Gafargaon',
-            image: quote
-        },
-        {
-            _id: 2,
-            name: 'Bangla',
-            description: 'hello, this is the best',
-            location: 'Gafargaon',
-            image: quote
-        },
-        {
-            _id: 3,
-            name: 'Bangla',
-            description: 'hello, this is the best',
-            location: 'Gafargaon',
-            image: quote
-        }
-    ]
+    const [review, setReview] = useState([]);
+
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/review')
+        .then(res=> res.json())
+        .then(data => setReview(data));
+    },[])
 
     return (
         <div className='my-20 px-12'>
@@ -41,7 +26,7 @@ const Reviews = () => {
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 '>
                 {
-                    review.map(review => <Review
+                    review?.slice(-3).map(review => <Review
                     key={review._id}
                     review={review}
                     ></Review>)
