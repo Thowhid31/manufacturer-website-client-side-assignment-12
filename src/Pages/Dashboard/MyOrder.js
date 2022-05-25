@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const MyOrders = () => {
@@ -19,36 +20,41 @@ const MyOrders = () => {
 
             <div>
                 <div class="overflow-x-auto ">
-                <table class="table w-full">
+                    <table class="table w-full">
 
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Email</th>
-                            <th>Parts Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-
-                        {
-                            orders.map((order, index)=> <tr>
-                                <th className="bg-blue-200 text-black">{index + 1}</th>
-                                <td>{order.email}</td>
-                                <td className="bg-blue-200 text-black">{order.productName}</td>
-                                <td>{order.quantity}</td>
-                                <td className="bg-blue-200 text-black">{order.price}</td>
-                            </tr>)
-                        }
-
-                        
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Email</th>
+                                <th>Parts Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Pay Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
 
-                    </tbody>
-                </table>
-            </div>
+                            {
+                                orders.map((order, index) => <tr>
+                                    <th className="bg-blue-200 text-black">{index + 1}</th>
+                                    <td>{order.email}</td>
+                                    <td className="bg-blue-200 text-black">{order.productName}</td>
+                                    <td>{order.quantity}</td>
+                                    <td>{order.price}</td>
+                                    <td className="bg-blue-200 text-black">
+                                        {(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-xs btn-success">Pay</button></Link>}
+                                        {(order.price && order.paid) && <span className="text-green-600">Paid</span>}
+                                    </td>
+                                </tr>)
+                            }
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
