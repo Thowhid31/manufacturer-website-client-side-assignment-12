@@ -3,7 +3,7 @@ import specialty from '../../Assets/images/why-us.jpg'
 
 const OurSpecialty = () => {
     return (
-        <div className='mt-24 flex'>
+        <div className='mt-24 flex justify-center items-center'>
             <div class="hero px-12 min-h-screen bg-base-200 p-5">
                 <div class="hero-content flex-col lg:flex-row">
                     <img src={specialty} class="max-w-sm rounded-lg shadow-2xl flex-1" alt=''/>

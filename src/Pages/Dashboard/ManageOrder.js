@@ -26,10 +26,10 @@
 // export default ManageOrder;
 
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Components/Loading';
-import ModalForOrderDelete from './ModalForOrderDelete';
+
 import OrderRow from './OrderRow';
 
 const ManageOrder = () => {
