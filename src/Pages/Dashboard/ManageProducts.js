@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Components/Loading';
+import ModalForProductDelete from './ModalForProductDelete';
 import ProductRow from './ProductRow';
 
 const ManageProducts = () => {
+
+    const [deleteProduct, setDeleteProduct] = useState(null)
 
     const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
         headers: {
@@ -41,11 +44,17 @@ const ManageProducts = () => {
                             product={product}
                             refetch={refetch}
                             index={index}
+                            setDeleteProduct={setDeleteProduct}
                             ></ProductRow>)
                         }
                     </table>
                 </div>
             </div>
+                        {deleteProduct && <ModalForProductDelete
+                        deleteProduct={deleteProduct}
+                        refetch={refetch}
+                        setDeleteProduct={setDeleteProduct}
+                        ></ModalForProductDelete>}
         </div>
     );
 };
