@@ -5,7 +5,7 @@ import ProductRow from './ProductRow';
 
 const ManageProducts = () => {
 
-    const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -39,6 +39,7 @@ const ManageProducts = () => {
                             products.map((product, index)=><ProductRow
                             key={product._key}
                             product={product}
+                            refetch={refetch}
                             index={index}
                             ></ProductRow>)
                         }
