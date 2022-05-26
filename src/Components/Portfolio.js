@@ -32,9 +32,10 @@ const Portfolio = () => {
                     </h4>
                     <p className='mt-3 p-3 rounded glass'>Skills I Have (as developer): HTML, CSS (Vanilla, Bootstrap, Tailwind), JS, React, Mongodb, Node.js, React Query, Toast, React Hook, Firebase Authentication, Heroku Deploy etc.</p>
                     <p className='mt-3 p-3 rounded glass'>Link of three websites: <br />
-                    1. warehouse-manage-assignment-11.web.app, <br></br>
-                    2. travel-guider-assignment-10.web.app, <br></br>
-                    3. ph-final-assignment-12.web.app .
+                    1. https://books-review-assignment-09.netlify.app,
+                    2. warehouse-manage-assignment-11.web.app, <br></br>
+                    3. travel-guider-assignment-10.web.app . <br></br>
+
                     </p>
                     </div>
                 </div>

@@ -52,11 +52,11 @@ const MyProfile = ({ refetch }) => {
                     <h1 className='p-5 text-3xl font-bold uppercase'>My Profile</h1>
                 </div>
                 <div>
-                    <div class="hero bg-base-200 flex justify-center items-center">
-                        <div class="hero-content flex-col lg:flex-row">
+                    <div className="hero bg-base-200 flex justify-center items-center">
+                        <div className="hero-content flex-col lg:flex-row">
 
-                            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                                <div class="card-body flex-1">
+                            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                                <div className="card-body flex-1">
                                     <form onSubmit={handleProfile} className='w-full text-xl text-black form-control'>
                                         <label className="label">
                                             <span className="label-text font-semibold text-lg">Name</span>
@@ -98,9 +98,9 @@ const MyProfile = ({ refetch }) => {
                                     
                                 </div>
                             </div>
-                            <div class="flex-1 text-center lg:text-left p-5">
-                                <h1 class="text-5xl font-bold">Update Your Profile Info</h1>
-                                <p class="py-6">If you want you can Edit your Info like, address, educational qualification and phone number also.</p>
+                            <div className="flex-1 text-center lg:text-left p-5">
+                                <h1 className="text-5xl font-bold">Update Your Profile Info</h1>
+                                <p className="py-6">If you want you can Edit your Info like, address, educational qualification and phone number also.</p>
                             </div>
                         </div>
                     </div>

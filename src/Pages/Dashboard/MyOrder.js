@@ -14,7 +14,7 @@ const MyOrders = () => {
     const {email} = useParams();
 
     const handleCancelOrder = email =>{
-        fetch(`http://localhost:5000/orders/${email}`,{
+        fetch(`https://morning-sea-61188.herokuapp.com/orders/${email}`,{
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/orders?email=${user.email}`)
+            fetch(`https://morning-sea-61188.herokuapp.com/orders?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => setOrders(data))
         }
@@ -47,8 +47,8 @@ const MyOrders = () => {
             <h2 className='font-bold text-black my-5 text-xl'>My Total Orders: <span className='text-red-600'>{orders.length}</span></h2>
 
             <div>
-                <div class="overflow-x-auto ">
-                    <table class="table w-full">
+                <div className="overflow-x-auto ">
+                    <table className="table w-full">
 
                         <thead>
                             <tr>

@@ -5,7 +5,7 @@
 
 // const ManageOrder = () => {
 
-//     const {data: _id, isLoading} = useQuery('orders', ()=> fetch(`http://localhost:5000/orders/${_id}`,{
+//     const {data: _id, isLoading} = useQuery('orders', ()=> fetch(`https://morning-sea-61188.herokuapp.com/orders/${_id}`,{
 //         headers: {
 //             authorization: `Bearer ${localStorage.getItem('accessToken')}`
 //         }
@@ -37,7 +37,7 @@ const ManageOrder = () => {
 
    
 
-    const { data: order, isLoading, refetch } = useQuery('products', () => fetch(`http://localhost:5000/allorders`, {
+    const { data: order, isLoading, refetch } = useQuery('products', () => fetch(`https://morning-sea-61188.herokuapp.com/allorders`, {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -53,8 +53,8 @@ const ManageOrder = () => {
         <div>
             <h1 className='text-2xl text-black'>Your Total Manage Products: {order.length}</h1>
             <div>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
                         <thead>
                             <tr>

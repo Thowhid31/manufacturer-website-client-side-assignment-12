@@ -26,7 +26,7 @@ const Navbar = ({ children }) => {
 
                 <div className="w-full navbar bg-base-300 px-20">
                
-                <label for="my-drawer-2"  class="badge badge-accent lg:hidden">•••</label>
+                <label htmlFor="my-drawer-2"  className="badge badge-accent lg:hidden">•••</label>
                 
                     <div className="flex-1 px-2 mx-2"><img className='w-1/3 lg:w-1/2' src={navImage} alt="" /></div>
                     <div className="flex-none lg:hidden">

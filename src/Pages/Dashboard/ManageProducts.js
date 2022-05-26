@@ -8,7 +8,7 @@ const ManageProducts = () => {
 
     const [deleteProduct, setDeleteProduct] = useState(null)
 
-    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading, refetch } = useQuery('products', () => fetch('https://morning-sea-61188.herokuapp.com/product', {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -24,8 +24,8 @@ const ManageProducts = () => {
         <div>
             <h1 className='text-2xl text-black'>Your Total Manage Products: {products.length}</h1>
             <div>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
                         <thead>
                             <tr>

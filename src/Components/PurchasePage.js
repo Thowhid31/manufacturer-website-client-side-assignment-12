@@ -59,7 +59,7 @@ const PurchasePage = () => {
             address: event.target.address.value
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://morning-sea-61188.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -93,8 +93,8 @@ const PurchasePage = () => {
                 <div className='lg:flex-1 items-center'>
                     <div className="card glass m-10 p-10">
                         <figure><img className='rounded' src={product.image} alt="car!" /></figure>
-                        <div class="card-body ">
-                            <h2 class="text-2xl uppercase font-bold">{product.name}</h2>
+                        <div className="card-body ">
+                            <h2 className="text-2xl uppercase font-bold">{product.name}</h2>
                             <p className='text-justify'>{product.description}</p>
                             <div className='text-center'>
                                 <div>

@@ -31,7 +31,7 @@ const MyReview = () => {
                     }
                     //sent to my db
 
-                    fetch(`http://localhost:5000/review`, {
+                    fetch(`https://morning-sea-61188.herokuapp.com/review`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

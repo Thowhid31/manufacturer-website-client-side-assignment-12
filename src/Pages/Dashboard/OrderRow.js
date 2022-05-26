@@ -6,7 +6,7 @@ const OrderRow = ({order, index, refetch}) => {
         , quantity, price, _id, email} = order;
 
     const handleDeleteProduct = _id => {
-        fetch(`http://localhost:5000/allorders/${_id}`,{
+        fetch(`https://morning-sea-61188.herokuapp.com/allorders/${_id}`,{
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
