@@ -1,11 +1,34 @@
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import DeleteConfirmModal from "./DeleteConfirmModal";
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
+
+    const [cancelingOrder, setCancelingOrder] = useState(null);
+
+    const {email} = useParams();
+
+    const handleCancelOrder = email =>{
+        fetch(`http://localhost:5000/orders/${email}`,{
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+            
+        })
+        .then(res=> res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount){
+                toast.success('Your Order Canceled!')
+            }
+        })
+    }
 
     useEffect(() => {
         if (user) {
@@ -14,6 +37,11 @@ const MyOrders = () => {
                 .then(data => setOrders(data))
         }
     }, [user])
+
+
+
+
+
     return (
         <div>
             <h2 className='font-bold text-black my-5 text-xl'>My Total Orders: <span className='text-red-600'>{orders.length}</span></h2>
@@ -30,11 +58,10 @@ const MyOrders = () => {
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Pay Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-
-
                             {
                                 orders.map((order, index) => <tr>
                                     <th className="bg-blue-200 text-black">{index + 1}</th>
@@ -50,16 +77,21 @@ const MyOrders = () => {
                                             <p>TransactionId: <span>{order.transactionId}</span></p>
                                             </div>}
                                     </td>
+                                    <td>
+                                       
+                                       
+                                        {!order.paid && <button onClick={()=> handleCancelOrder(email)} className="btn btn-xs btn-error">Cancel</button>}
+                                    </td>
                                 </tr>)
                             }
-
-
-
-
                         </tbody>
                     </table>
                 </div>
             </div>
+            {cancelingOrder && <DeleteConfirmModal
+                cancelingOrder={cancelingOrder}
+                setCancelingOrder={setCancelingOrder}
+            ></DeleteConfirmModal>}
         </div>
     );
 
