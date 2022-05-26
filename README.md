@@ -1,7 +1,5 @@
-# Computer Mechanism
+# Computer Mechanism (Client)
 
-
-# Expert Hand
 
 Short Description: This is my second Complete website which is full developed by me. As a beginner we first of all known about HTML, then CSS, JS, REACT, MongoDB, NodeJs etc. This website Contains all these feature through development.
 
