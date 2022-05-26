@@ -4,12 +4,13 @@ import React, { useEffect, useState } from 'react';
 const CheckoutForm = ({parts}) => {
     const stripe = useStripe();
     const elements = useElements();
+    const [processing, setProcessing] = useState(false)
     const [cardError, setCardError] = useState('');
     const [cardSuccess, setCardSuccess] = useState('');
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('')
 
-    const {price, email } = parts;
+    const {_id, price, email } = parts;
 
     useEffect(()=>{
         fetch('http://localhost:5000/create-payment-intent', {
@@ -54,6 +55,7 @@ const CheckoutForm = ({parts}) => {
         }
 
         setCardSuccess('')
+        setProcessing(true)
         //confirm payment with card
         const {paymentIntent, error: intentError} = await stripe.confirmCardPayment(
             clientSecret,
@@ -70,6 +72,7 @@ const CheckoutForm = ({parts}) => {
 
           if(intentError){
               setCardError(intentError?.message);
+              setProcessing(false)
               
           } 
           else{
@@ -77,6 +80,25 @@ const CheckoutForm = ({parts}) => {
               setTransactionId(paymentIntent.id);
               console.log(paymentIntent);
               setCardSuccess('Hey Buddy, Your Payment is Done!')
+
+              //send to db
+              const payment = {
+                  parts: _id,
+                  transactionId: paymentIntent.id
+
+              }
+              fetch(`http://localhost:5000/orders/${_id}`, {
+                  method: 'PATCH',
+                  headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+              }).then(res=> res.json())
+              .then(data => {
+                  setProcessing(false)
+                  console.log(data);
+              })
           }
 
     }
@@ -99,7 +121,7 @@ const CheckoutForm = ({parts}) => {
                         },
                     }}
                 />
-                <button className='btn btn-error btn-xs mt-4' type="submit" disabled={!stripe || !clientSecret}>
+                <button className='btn btn-error btn-xs mt-4' type="submit" disabled={!stripe || !clientSecret || cardSuccess}>
                     Pay
                 </button>
             </form>
