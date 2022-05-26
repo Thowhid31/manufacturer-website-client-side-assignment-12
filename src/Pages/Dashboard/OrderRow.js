@@ -22,6 +22,7 @@ const OrderRow = ({order, index, refetch}) => {
         })
     }
 
+   
 
     return (
         <tr>
@@ -31,7 +32,14 @@ const OrderRow = ({order, index, refetch}) => {
 }</td>
         <td>{quantity}</td>
         <td>{price}</td>
-        <td><button onClick={()=> handleDeleteProduct(_id)} className='btn btn-xs btn-error'>Delete</button></td>
+        <td>
+        {(order.price && !order.paid) &&<button className="btn btn-xs btn-black">Unpaid</button>}
+       
+        {(order.price && order.paid) &&<button className="btn btn-xs btn-success">Pending</button>}
+        </td>
+        <td>
+            <button onClick={()=> handleDeleteProduct(_id)} className='btn btn-xs btn-error'>Cancel Order</button>
+        </td>
       </tr>
     );
 };

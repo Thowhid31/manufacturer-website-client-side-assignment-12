@@ -26,12 +26,17 @@
 // export default ManageOrder;
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../../Components/Loading';
+import ModalForOrderDelete from './ModalForOrderDelete';
 import OrderRow from './OrderRow';
 
 const ManageOrder = () => {
+
+
+   
+
     const { data: order, isLoading, refetch } = useQuery('products', () => fetch(`http://localhost:5000/allorders`, {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -58,6 +63,7 @@ const ManageOrder = () => {
                                 <th>Product Name</th>
                                 <th>Product Quantity</th>
                                 <th>Price</th>
+                                <th>Paid/Unpaid</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -68,7 +74,7 @@ const ManageOrder = () => {
                             key={order._key}
                             order={order}
                             refetch={refetch}
-                            index={index}
+                            index={index}   
                             ></OrderRow>)
                         }
                     </table>
