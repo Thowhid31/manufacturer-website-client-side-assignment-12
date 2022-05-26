@@ -5,9 +5,10 @@ const CheckoutForm = ({parts}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
+    const [cardSuccess, setCardSuccess] = useState('');
     const [clientSecret, setClientSecret] = useState('')
 
-    const {price} = parts;
+    const {price, email } = parts;
 
     useEffect(()=>{
         fetch('http://localhost:5000/create-payment-intent', {
@@ -50,6 +51,32 @@ const CheckoutForm = ({parts}) => {
         else {
             setCardError('')
         }
+
+        setCardSuccess('')
+        //confirm payment with card
+        const {paymentIntent, error: intentError} = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+              payment_method: {
+                card: card,
+                billing_details: {
+                  name: email
+
+                },
+              },
+            },
+          );
+
+          if(intentError){
+              setCardError(intentError?.message);
+              
+          } 
+          else{
+              setCardError('');
+              console.log(paymentIntent);
+              setCardSuccess('Hey Buddy, Your Payment is Done!')
+          }
+
     }
     return (
         <>
@@ -76,6 +103,9 @@ const CheckoutForm = ({parts}) => {
             </form>
             {
                 cardError && <p className='text-red-500'>{cardError}</p>
+            }
+            {
+                cardSuccess && <p className='text-green-600'>{cardSuccess}</p>
             }
         </>
     );
